@@ -44,7 +44,7 @@
   <div class="topnav">
     <div class="menu-bars">
       <div class="bar-wrap">
-        <button href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <button href="javascript:void(0);" class="icon" onclick="myFunction()" aria label="Top Navigation Menu">
           <i class="fa fa-bars"><span class="visually-hidden">Menu</span></i>
         </button>
       </div>
@@ -79,7 +79,7 @@
     <div id="home-page">
 
       <a id='skip-nav' class='screenreader-text' href='#main-content'>
-        Skip Navigation or Skip to Content
+        Skip to main content
       </a>
        <div class="hero phase_page" v-bind:class="'phase'+phaseData[1].phase_number">
         <div class="hero-img">
@@ -246,8 +246,8 @@
           <form name="subscribe form" class="custom-form"
             action="https://docs.google.com/forms/d/e/1FAIpQLScdBHFjif3eAAI1ectDTGyWR-sWvXjk5pofj9d_CmZ7wpDYng/formResponse"
             method="post" target="hidden_iframe" onsubmit="submitted=true;" aria-label="form to subscribe">
-            <p class="form-label" style="margin-top:0"><label>State</label></p>
-            <fieldset>
+            <p class="form-label" style="margin-top:0"><label for="id for state field">State</label></p>
+            
             <div class="form-row form-control">
               <select id="states" name="entry.899949646">
                 <option value="none" selected disabled hidden>
@@ -256,18 +256,18 @@
                 <option v-for="state in statesData" :label="state.name" :value="state.name">{{state.name}}</option>
               </select>
             </div>
-          </fieldset>
-          <fieldset>
+
             <div class="form-row">
-              <p class="form-label"><label>City</label></p>
+          
+              <p class="form-label"><label for="id for city field">City</label></p>
               <input style="margin-right:10px" type="text" onfocus="this.placeholder = ''"
                 onblur="this.placeholder = 'Please mention your city here'" placeholder="Please mention your city here"
                 name="entry.668965230" aria-hidden=”true”>
             </div>
-          </fieldset>
+  
               <fieldset>
             <div class="form-row">
-              <p class="form-label"><label>How would you describe your gender?</label> </p>
+              <p class="form-label"><legend>How would you describe your gender?</legend> </p>
 
               <input type="radio" name="entry.561799016" id="male" value="Male" @change="other_gender_option()">
               <label for="male">Male</label><br>
@@ -290,7 +290,7 @@
 </fieldset>
 <fieldset>
             <div class="form-row">
-              <p class="form-label"><label>What is your Race and/or Ethnicity? It is possible to select more than one.</label></p>
+              <p class="form-label"><legend>What is your Race and/or Ethnicity? It is possible to select more than one.</legend></p>
               <input type="checkbox" id="race1" name="entry.1531594121" value="American Indian or Alaska Native">
               <label for="race1">American Indian or Alaska Native</label><br>
               <input type="checkbox" id="race2" name="entry.1531594121" value="Asian">
@@ -320,8 +320,8 @@
 </fieldset>
 <fieldset>
             <div class="form-row">
-              <p class="form-label"><label>Which of the following best describes the grade level of the school you attend, if
-                you are a student, or teach at or that your children attend?</label></p>
+              <p class="form-label"><legend>Which of the following best describes the grade level of the school you attend, if
+                you are a student, or teach at or that your children attend?</legend></p>
               <input type="radio" name="entry.767050685" id="elementary" value="Elementary or primary school">
               <label for="elementary">Elementary or primary school</label><br>
               <input type="radio" name="entry.767050685" id="middle-school" value="Middle or junior high school">
@@ -341,7 +341,7 @@
 </fieldset>
 <fieldset>
             <div class="form-row">
-              <p class="form-label"><label>Which of the following best describes your school?</label></p>
+              <p class="form-label"><legend>Which of the following best describes your school?</legend></p>
               <input type="radio" name="entry.499643290" id="Public" @change="other_school_option()" value="Public">
               <label for="Public">Public</label><br>
               <input type="radio" name="entry.499643290" id="Private" @change="other_school_option()" value="Private">
@@ -452,7 +452,15 @@ document.getElementById('pop-up').className = "overlay-nudge show-nudge";
     window.location.href = "#demo-survey-form";
   }
 </script>
-
+<script>
+  document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+      var x = document.getElementById("myLinks");
+    x.style.display = "none";
+    }
+};
+</script>
 <script>
   function confirm() {
     var x = document.getElementById("thankyou");
