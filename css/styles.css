@@ -65,9 +65,7 @@ body {
   text-decoration: none;
   font-size: 17px;
 }
-.topnav a img{
-  width: 140px;
-}
+
 
 .menu-bars{
   width: 20%;
@@ -91,15 +89,25 @@ align-items: center;
   left: 0;
   top: 0;
 }
-
+.topnav a img{
+ 
+}
 .top_logo {
-
-width:60%;
+  width: 140px;
+width:10%;
 display: flex;
 align-items: center;
 justify-content: center;
 }
-
+.nj_logo{
+width:10%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.nj_logo img{
+  height: 60px;
+}
 .lang-select{
   width:20%;
   display:flex;
@@ -109,11 +117,7 @@ justify-content: center;
   margin-right:20px;
   font-weight: 300;
 }
-.top_logo img#undp-logo-style{
-  margin: 5px 25px;
-  height:80px; 
-  width:auto; 
-}
+
 .lang-select a{
   color: var(--dark-grey);
   text-decoration: none;
