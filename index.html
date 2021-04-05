@@ -106,6 +106,12 @@
           </div>
         </div>
       </div>
+
+      <div class="aoi-page-body">
+        <div tabindex="0" class="summary" v-html="aoiData[0].what_measurement_nj">
+
+        </div>
+      </div>
       <div id="main-content" class="aoi-page-body participate-button">
         <div class="participate-button-links">
 
@@ -148,9 +154,7 @@
       </div>
 
       <div class="aoi-page-body">
-        <div tabindex="0" class="summary" v-html="aoiData[0].what_measurement_nj">
 
-        </div>
         <div class="learn-list">
           <div tabindex="0" class="learn-box" v-for="item in aoiData[0].challenge_items" v-if="item.aoi_list_id.language == false && item.aoi_list_id.state == 'nj'">
             <div class="learn-item">
