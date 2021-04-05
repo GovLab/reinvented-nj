@@ -81,7 +81,31 @@
       <a id='skip-nav' class='screenreader-text' href='#main-content'>
         Skip to main content
       </a>
+      <div class="hero phase_page" v-bind:class="'phase'+phaseData[1].phase_number">
+        <div class="hero-img">
+          <div class="video">
+            <div class="video-container">
+              <div style="padding:56.25% 0 0 0;position:relative;"><iframe
+                  src="https://player.vimeo.com/video/523974125?title=0&byline=0&portrait=0"
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0"
+                  allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+              <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
+          </div>
+        </div>
+        <div class="hero-title">
 
+          <h1>{{phaseData[1].title}}</h1>
+          <h2>{{phaseData[1].short_description}}</h2>
+          <div class="subtitle">
+            <div class="main-button">
+              <a href="#aoi-participate">Participate Now!</a>
+              <a v-if="phaseData[1].button_text" :href="phaseData[1].external_link">{{phaseData[1].button_text}}</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="main-content" class="aoi-page-body participate-button">
         <div class="participate-button-links">
 
@@ -122,31 +146,7 @@
         </div>
 
       </div>
-      <div class="hero phase_page" v-bind:class="'phase'+phaseData[1].phase_number">
-        <div class="hero-img">
-          <div class="video">
-            <div class="video-container">
-              <div style="padding:56.25% 0 0 0;position:relative;"><iframe
-                  src="https://player.vimeo.com/video/523974125?title=0&byline=0&portrait=0"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0"
-                  allow="autoplay; fullscreen" allowfullscreen></iframe></div>
-              <script src="https://player.vimeo.com/api/player.js"></script>
-            </div>
-          </div>
-        </div>
-        <div class="hero-title">
 
-          <h1>{{phaseData[1].title}}</h1>
-          <h2>{{phaseData[1].short_description}}</h2>
-          <div class="subtitle">
-            <div class="main-button">
-              <a href="#aoi-participate">Participate Now!</a>
-              <a v-if="phaseData[1].button_text" :href="phaseData[1].external_link">{{phaseData[1].button_text}}</a>
-
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="aoi-page-body">
         <div tabindex="0" class="summary" v-html="aoiData[0].what_measurement_nj">
 
