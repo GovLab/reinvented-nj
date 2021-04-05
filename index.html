@@ -81,7 +81,48 @@
       <a id='skip-nav' class='screenreader-text' href='#main-content'>
         Skip to main content
       </a>
-       <div class="hero phase_page" v-bind:class="'phase'+phaseData[1].phase_number">
+
+      <div id="main-content" class="aoi-page-body participate-button">
+        <div class="participate-button-links">
+
+          <div  tabindex="0" class="aoi-button-item" v-for="(aoi,index) in aoi_toolData">
+            <div @click="toggleAOI(index)"
+              v-bind:class="active_aoi == index ? 'active aoi-button-text' : 'inactive aoi-button-text'">
+              <p>Click if you are {{aoi.focus_group_nj}}</p>
+              <p class="aoi-define">{{aoi.definition_nj}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div id="framing-section" class="aoi-page-body">
+        <template v-for="(aoi,index) in aoi_toolData">
+        <div tabindex="0" class="highlight-box-padding"  v-if="active_aoi == index">
+          
+          <div class="highlight-box">
+            <p class="highlight-title">{{aoi.framing_title_nj}}</p>
+            <p class="framing-language">{{aoi.framing_language_nj}}</p>
+          </div>
+        </div>
+</template>
+
+      </div>
+
+      <div class="aoi-page-body" style="padding-top:0">
+        <template v-for="(aoi,index) in aoi_toolData">
+          <div tabindex="0" class="summary instructions" v-html="aoiData[0].aoi_instructions_nj" v-if="active_aoi == index">
+
+          </div>
+        </template>
+      </div>
+
+      <div class="aoi-tool-section" v-for="(aoi,index) in aoi_toolData" v-if="active_aoi == index">
+        <div tabindex="0" v-html="aoi.aoi_embed_nj">
+
+        </div>
+
+      </div>
+      <div class="hero phase_page" v-bind:class="'phase'+phaseData[1].phase_number">
         <div class="hero-img">
           <div class="video">
             <div class="video-container">
@@ -94,7 +135,7 @@
           </div>
         </div>
         <div class="hero-title">
-          <p>Phase {{phaseData[1].phase_number}}</p>
+
           <h1>{{phaseData[1].title}}</h1>
           <h2>{{phaseData[1].short_description}}</h2>
           <div class="subtitle">
@@ -106,52 +147,12 @@
           </div>
         </div>
       </div>
-      <div id="main-content" class="aoi-page-body participate-button">
-        <div class="participate-button-links">
-
-          <div  tabindex="0" class="aoi-button-item" v-for="(aoi,index) in aoi_toolData">
-            <div @click="toggleAOI(index)"
-              v-bind:class="active_aoi == index ? 'active aoi-button-text' : 'inactive aoi-button-text'">
-              <p>Click if you are {{aoi.focus_group}}</p>
-              <p class="aoi-define">{{aoi.definition}}</p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div id="framing-section" class="aoi-page-body">
-        <template v-for="(aoi,index) in aoi_toolData">
-        <div tabindex="0" class="highlight-box-padding"  v-if="active_aoi == index">
-          
-          <div class="highlight-box">
-            <p class="highlight-title">{{aoi.framing_title}}</p>
-            <p class="framing-language">{{aoi.framing_language}}</p>
-          </div>
-        </div>
-</template>
-
-      </div>
-
-      <div class="aoi-page-body" style="padding-top:0">
-        <template v-for="(aoi,index) in aoi_toolData">
-          <div tabindex="0" class="summary instructions" v-html="aoiData[0].aoi_instructions" v-if="active_aoi == index">
-
-          </div>
-        </template>
-      </div>
-
-      <div class="aoi-tool-section" v-for="(aoi,index) in aoi_toolData" v-if="active_aoi == index">
-        <div tabindex="0" v-html="aoi.aoi_embed">
-
-        </div>
-
-      </div>
       <div class="aoi-page-body">
-        <div tabindex="0" class="summary" v-html="aoiData[0].what_measurement">
+        <div tabindex="0" class="summary" v-html="aoiData[0].what_measurement_nj">
 
         </div>
         <div class="learn-list">
-          <div tabindex="0" class="learn-box" v-for="item in aoiData[0].challenge_items" v-if="item.aoi_list_id.language == false">
+          <div tabindex="0" class="learn-box" v-for="item in aoiData[0].challenge_items" v-if="item.aoi_list_id.language == false && item.aoi_list_id.state == 'nj'">
             <div class="learn-item">
             <p>{{item.aoi_list_id.item}}</p>
             </div>
@@ -160,7 +161,7 @@
         <div class="highlight-box-padding">
           <p tabindex="0" class="super-text box">YOUR VOICE MATTERS</p>
           <div class="highlight-box">
-            <p>{{aoiData[0].what_we_want_to_learn}}</p>
+            <p>{{aoiData[0].what_we_want_to_learn_nj}}</p>
           </div>
 
         </div>
@@ -178,7 +179,7 @@
 
         <div class="highlight-box-padding">
           <p tabindex="0" class="super-text box">How to participate</p>
-          <div tabindex="0" class="highlight-box" v-html="aoiData[0].how_to_participate">
+          <div tabindex="0" class="highlight-box" v-html="aoiData[0].how_to_participate_nj">
 
           </div>
         </div>
@@ -193,8 +194,8 @@
           <div class="aoi-button-item" v-for="(aoi,index) in aoi_toolData">
             <div  tabindex="0" @click="toggleAOI(index)"
               v-bind:class="active_aoi == index ? 'active aoi-button-text' : 'inactive aoi-button-text'">
-              <p>Click if you are {{aoi.focus_group}}</p>
-              <p class="aoi-define">{{aoi.definition}}</p>
+              <p>Click if you are {{aoi.focus_group_nj}}</p>
+              <p class="aoi-define">{{aoi.definition_nj}}</p>
             </div>
 
           </div>
@@ -205,8 +206,8 @@
         <div tabindex="0" class="highlight-box-padding"  v-if="active_aoi == index">
           
           <div class="highlight-box">
-            <p class="highlight-title">{{aoi.framing_title}}</p>
-            <p class="framing-language">{{aoi.framing_language}}</p>
+            <p class="highlight-title">{{aoi.framing_title_nj}}</p>
+            <p class="framing-language">{{aoi.framing_language_nj}}</p>
           </div>
         </div>
 </template>
@@ -215,14 +216,14 @@
 
       <div class="aoi-page-body" style="padding-top:0">
         <template v-for="(aoi,index) in aoi_toolData">
-          <div tabindex="0" class="summary instructions" v-html="aoiData[0].aoi_instructions" v-if="active_aoi == index">
+          <div tabindex="0" class="summary instructions" v-html="aoiData[0].aoi_instructions_nj" v-if="active_aoi == index">
 
           </div>
         </template>
       </div>
 
       <div class="aoi-tool-section" v-for="(aoi,index) in aoi_toolData" v-if="active_aoi == index">
-        <div tabindex="0" v-html="aoi.aoi_embed">
+        <div tabindex="0" v-html="aoi.aoi_embed_nj">
 
         </div>
 
@@ -233,7 +234,7 @@
       </div>
       <div class="aoi-page-body">
         <div class="summary">
-          <p>{{aoiData[0].share_your_opinions}}</p>
+          <p>{{aoiData[0].share_your_opinions_nj}}</p>
         </div>
       </div>
 
