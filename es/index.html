@@ -111,6 +111,7 @@
       <div class="aoi-tool-section" id="tool_section" v-for="(aoi,index) in aoi_toolData" v-if="active_aoi == index">
         <div class="aoi-page-body tool" style="padding-top:1rem">
           <template v-for="(aoi,index) in aoi_toolData">
+            <p tabindex="0" v-if="active_aoi == index" class="super-text box" style="margin-bottom:1rem">¡Haga escuchar su voz! </p>
             <div tabindex="0" class="summary instructions" v-html="aoiData[0].nj_intro_es" v-if="active_aoi == index">
     
             </div>
@@ -342,14 +343,14 @@
       <div id="disclaimer" class="disclaimer-nudge">
         
         <div class="pop-up-content">
-          <p>You are leaving this website. The content you encounter on the national website is not endorsed by nor approved by the State of NJ or the NJ Department of Education. To participate in the NJ campaign, please remain on this page</p>
+          <p>Estás saliendo de este sitio web. El contenido de esta iniciativa a escala nacional no está respaldado ni aprobado por el estado de Nueva Jersey ni por su Departamento de Educación. Para participar en la campaña de Nueva Jersey, permanezca en esta página.</p>
         </div>
         <div class="pop-up-buttons">
         <div class="main-button pop-up">
-          <a target="blank" href="https://youreducationyourvoice.org">Visit website</a>
+          <a target="blank" href="https://youreducationyourvoice.org">Visita el web</a>
         </div>
         <div onclick="close_disclaimer()" class="main-button pop-up close-pop-up">
-          <a><i class="fas fa-times-circle"></i>&nbspCLOSE</a>
+          <a><i class="fas fa-times-circle"></i>&nbspcerrar</a>
         </div>
         <div ></div>
         </div>
