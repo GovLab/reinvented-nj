@@ -98,7 +98,7 @@
         <div class="participate-button-links">
 
           <div  tabindex="0" class="aoi-button-item">
-            <a href="https://youreducationyourvoice.org" target="_blank" class="inactive aoi-button-text">
+            <a onclick="disclaimer()" target="_blank" class="inactive aoi-button-text">
               <p class="aoi-define">Don’t go to school in New Jersey? We still want to hear from you. Click here</p>
             </a>
 
@@ -339,6 +339,22 @@
         <div ></div>
         </div>
       </div>
+
+      <div id="disclaimer" class="disclaimer-nudge">
+        
+        <div class="pop-up-content">
+          <p>You are leaving this website. The content you encounter on the national website is not endorsed by nor approved by the State of NJ or the NJ Department of Education. To participate in the NJ campaign, please remain on this page</p>
+        </div>
+        <div class="pop-up-buttons">
+        <div class="main-button pop-up">
+          <a target="blank" href="https://youreducationyourvoice.org">Visit website</a>
+        </div>
+        <div onclick="close_disclaimer()" class="main-button pop-up close-pop-up">
+          <a><i class="fas fa-times-circle"></i>&nbspCLOSE</a>
+        </div>
+        <div ></div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -395,6 +411,16 @@ document.getElementById('pop-up').className = "overlay-nudge show-nudge";
 <script>
   function close_pop_up() {
     document.getElementById('pop-up').className = "overlay-nudge hide-nudge";
+  }
+</script>
+<script>
+  function disclaimer() {
+    document.getElementById('disclaimer').className = "disclaimer-nudge show-nudge";
+  }
+</script>
+<script>
+  function close_disclaimer() {
+    document.getElementById('disclaimer').className = "overlay-nudge hide-nudge";
   }
 </script>
 <script>
